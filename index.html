@@ -1,0 +1,1132 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="IE=8" />
+<meta http-equiv="description" content="ieBetter.js方法支持API简介以及演示 » 张鑫旭-鑫空间-鑫生活" />
+<meta name="description" content="张鑫旭web前端文档页面之ieBetter方法支持API简介以及演示" />
+<meta name="keywords" content="ieBetter.js, javascript, ie6, ie7, ie8, API" />
+<meta name="author" content="张鑫旭, zhangxinxu" />
+<title>ieBetter.js方法支持API简介以及演示 » 张鑫旭-鑫空间-鑫生活</title>
+<link rel="stylesheet" href="api.css">
+<link rel="shortcut icon" href="zxx_ico.ico" />
+<style>
+.button { display: inline-block; padding-left: 12px; padding-right: 12px; height: 26px; border: 1px solid #a0b3d6; border-radius: 2px; background-color: #cad5eb; box-shadow: inset 0 1px 1px #f0f3f9; text-shadow: 0 1px #f0f3f9; font-weight: 700; overflow: visible; cursor: pointer; }
+.button:hover { border-color: #819DD3; }
+:root .button:active { box-shadow: inset 0 1px 1px #34538b; }
+img { background-color: #f5f5f5; }
+.link { background-color: #34538b; color:#fff; padding: 1px 5px; }
+</style>
+</head>
+
+<body>
+<div class="zxx_header">
+    <div class="zxx_constr">
+        <a href="http://www.zhangxinxu.com/" class="zxx_logo">
+            <img class="l" src="index_logo.gif" alt="张鑫旭-鑫空间-鑫生活" />
+        </a>
+        <span class="zxx_author_time">特别感谢媳妇对我工作的大力支持！<br>——by <span role="author">zhangxinxu</span> <span role="timer">2013-12-12 17:52</span></span>
+    </div>
+</div>
+<div class="zxx_nav">
+	<div class="zxx_constr">
+    	<ul class="zxx_nav_ul">
+        	<li class="zxx_nav_li"><a href="index.html" class="zxx_nav_a zxx_nav_on">API展示</a></li>
+            <li class="zxx_nav_li"><a href="index.html" class="zxx_nav_a">相关文章</a></li>
+            <li class="zxx_nav_sp">            	
+                <a href="javascript:" id="hideHeadFoot" class="zxx_gbtn" title="如果您的浏览器高度不够，可以点击这个按钮增强体验">隐藏头部和尾部</a>&nbsp;
+                <a href="https://github.com/zhangxinxu/ieBetter" class="zxx_rbtn">Fork Me</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="zxxBody" class="zxx_body">
+	<div id="zxxSlide" class="zxx_side">
+    	<h6 class="zxx_api_title">• 选择器相关API</h6>
+        <a href="#querySelector" class="zxx_api_a zxx_api_on" name="querySelector">*.querySelector</a>
+        <a href="#querySelectorAll" class="zxx_api_a" name="querySelectorAll">*.querySelectorAll</a>
+        <a href="#getElementsByClassName" class="zxx_api_a" name="getElementsByClassName">*.getElementsByClassName</a>
+        <h6 class="zxx_api_title">• 事件相关API</h6>
+        <a href="#addEventListener" class="zxx_api_a" name="addEventListener">*.addEventListener</a>        
+        <a href="#removeEventListener" class="zxx_api_a" name="removeEventListener">*.removeEventListener</a>
+        <a href="#dispatchEvent" class="zxx_api_a" name="dispatchEvent">*.dispatchEvent</a>
+        <a href="#createEvent" class="zxx_api_a" name="createEvent">document.createEvent</a>
+        <a href="#initEvent" class="zxx_api_a" name="initEvent">init[|Mouse|UI]Event</a>
+        <a href="#input" class="zxx_api_a" name="input">input</a>
+        <a href="#hashchange" class="zxx_api_a" name="hashchange">window.onhashchange</a>
+        <h6 class="zxx_api_title">• ES5 Object扩展</h6>
+        <a href="#create" class="zxx_api_a" name="create">Object.create</a>
+        <a href="#keys" class="zxx_api_a" name="keys">Object.keys</a>
+        <h6 class="zxx_api_title">• Date对象</h6>
+        <a href="#now" class="zxx_api_a" name="now">Date.now</a>
+        <h6 class="zxx_api_title">• ES5 Function扩展</h6>
+        <a href="#bind" class="zxx_api_a" name="bind">Function.bind</a>
+        <h6 class="zxx_api_title">• ES5 String扩展</h6>
+        <a href="#trim" class="zxx_api_a" name="trim">String.trim</a>
+        <h6 class="zxx_api_title">• ES5 数组方法扩展</h6>
+        <a href="#isArray" class="zxx_api_a" name="isArray">Array.isArray</a>
+        <a href="#forEach" class="zxx_api_a" name="forEach">Array.forEach</a>
+        <a href="#map" class="zxx_api_a" name="map">Array.map</a>
+        <a href="#filter" class="zxx_api_a" name="filter">Array.filter</a>
+        <a href="#some" class="zxx_api_a" name="some">Array.some</a>
+        <a href="#every" class="zxx_api_a" name="every">Array.every</a>
+        <a href="#indexOf" class="zxx_api_a" name="indexOf">Array.indexOf</a>
+        <a href="#lastIndexOf" class="zxx_api_a" name="lastIndexOf">Array.lastIndexOf</a>
+        <a href="#reduce" class="zxx_api_a" name="reduce">Array.reduce</a>
+        <a href="#reduceRight" class="zxx_api_a" name="reduce">Array.reduceRight</a>
+    </div>
+    <div id="querySelector" class="zxx_api_detail" style="visibility: visible;">
+    	<div class="zxx_api_content">
+        	<h2>*.querySelector</h2>
+            <h3>概述</h3>
+            <p>返回当前文档中匹配一个特定选择器的第一个元素。返回的对象类型是<code>Node</code>或<code>Null</code>. 选择器内核为<a href="http://www.sizzlejs.com/">Sizzle</a>.</p>
+            <h3>语法</h3>
+            <ul>
+            	<li><code>selector</code> 表示选择器。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>支持<code>document.querySelector</code>以及<code>element.querySelector</code>. 不过有个限制，<code>element</code>需要是<code>document.querySelector</code>或<code>document.querySelectorAll</code>选择的元素。</p>
+            <p>例如下面这个在IE6~IE8下是会报错：</p>
+            <pre>document.getElementById("query").querySelector(".selector");</pre>
+            <p>需要这么使用：</p>
+            <pre>document.querySelector("#query").querySelector(".selector");</pre>
+            <h3>示例</h3>
+            <p><input type="button" id="testButton1" class="button" value="class为bingo的图片往前走两步"></p>
+            <p>
+            	<img src="mm1.jpg" class="bingo">
+            	<img src="mm2.jpg" class="bingo1">
+                <img src="mm3.jpg" class="bingo2">
+            </p>
+            <h3>代码</h3>
+            <p>HTML</p>
+            <pre>&lt;img src="mm1.jpg" class="bingo">
+&lt;img src="mm2.jpg" class="bingo1">
+&lt;img src="mm3.jpg" class="bingo2"></pre>
+            <p>JS</p>
+            <pre>var eleTestButton1 = <mark>document.querySelector</mark>("#testButton1");
+if (eleTestButton1) {
+    eleTestButton1.addEventListener("click", function() {
+        var eleBingo = <mark>document.querySelector</mark>(".bingo");	
+        if (eleBingo) {
+            if (!eleBingo.style.verticalAlign) {
+                eleBingo.style.verticalAlign = "8px";
+                this.value = "给我回来！";
+            } else {
+                eleBingo.style.verticalAlign = "";
+                this.value = "走两步！";
+            }				
+        }
+    });	
+}</pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="querySelectorAll" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>*.querySelectorAll</h2>
+            <h3>概述</h3>
+            <p>返回当前文档中匹配一个特定选择器的所有的元素。在IE6-8下，返回的是装载节点集合的数组；其他浏览器为<code>NodeList</code>类型。</p>
+            <h3>语法</h3>
+            <pre>&lt;var&gt;elementList&lt;/var&gt; = document.querySelectorAll(<em>selectors</em>);</pre>
+            <ul>
+            	<li><code>selectors</code> 表示是一个由逗号连接的包含一个或多个CSS选择器的字符串。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>如果你想遍历所有的节点。可以试试这种用法：</p>
+            <pre>var elementList = document.querySelectorAll(<em>selectors</em>);
+[].slice.call(elementList).forEach(function(elementNode, index) {
+     <span style="color: #999;">// elementNode 就是遍历的节点       </span>
+});
+</pre>
+			<h3>示例</h3>
+            <p><input type="button" id="testButton2" class="button" value="class为bingoAll的图片边框变身"></p>
+            <p>
+            	<img src="mm1.jpg" class="bingoAll">
+            	<img src="mm2.jpg" class="bingoAll">
+                <img src="mm3.jpg" class="bingoAll">
+            </p>
+            <h3>代码</h3>
+            <p>HTML</p>
+            <pre>&lt;img src="mm1.jpg" class="bingoAll">
+&lt;img src="mm2.jpg" class="bingoAll">
+&lt;img src="mm3.jpg" class="bingoAll"></pre>
+            <p>JS</p>
+            <pre>var eleTestButton2 = document.querySelector("#testButton2");
+if (eleTestButton2 && !eleTestButton2.clicked) {
+    eleTestButton2.addEventListener("click", function() {
+        var eleBingoAll = document.<mark>querySelectorAll</mark>(".bingoAll");	
+        [].slice.call(eleBingoAll).forEach(function(eleBingo) {
+            eleBingo.style.padding = "3px";	
+            eleBingo.style.border = "1px solid #aaa";	
+        });
+        eleTestButton2.clicked = true;
+    });	
+}</pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="getElementsByClassName" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>*.getElementsByClassName</h2>
+            <h3>概述</h3>
+            <p>根据类名获得匹配的所有元素。在IE6-8下，返回的是装载节点集合的数组；其他浏览器为<code>NodeList</code>类型。</p>
+            <h3>语法</h3>
+            <pre>&lt;var&gt;elementList&lt;/var&gt; = document.getElementsByClassName(<em>classNameA classNameB ...</em>);</pre>
+            <ul>
+            	<li><code>className</code> 表示希望匹配的元素的类名。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>在IE9+浏览器下，使用的是原生<code>getElementsByClassName</code>方法，其速度要比<code>querySelector</code>快。支持多个类名。</p>
+            <h3>示例</h3>
+            <p><input type="button" id="testButton3" class="button" value="class为bingA+bingoB的躲猫猫"></p>
+            <p>
+            	<img src="mm1.jpg" class="bingoA bingoB">
+            </p>
+            <h3>代码</h3>
+            <p>HTML</p>
+            <pre>&lt;img src="mm1.jpg" class="bingoA bingoB"></pre>
+            <p>JS</p>
+            <pre>var eleTestButton3 = document.querySelector("#testButton3");
+if (eleTestButton3) {
+    eleTestButton3.addEventListener("click", function() {
+        var eleBingClassName = document.<mark>getElementsByClassName</mark>("bingoA bingoB")[0];			
+        if (eleBingClassName) {
+            var visibility = eleBingClassName.style.visibility;
+            if (visibility == "hidden") {
+                this.value = "点击隐藏";	
+                eleBingClassName.style.visibility = "visible";
+            } else {
+                this.value = "点击显示";	
+                eleBingClassName.style.visibility = "hidden";
+            }
+        }
+    });	
+}</pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="addEventListener" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>*.addEventListener</h2>
+            <h3>概述</h3>
+            <p>在一个单一的目标上注册单一的监听事件。监听事件可以是一个文档上的元素，或者<code>document</code>本身，或<code>window</code>.</p>
+            <h3>语法</h3>
+            <pre><em>target</em>.addEventListener(<em>type</em>, <em>listener</em>[, useCapture]);</pre>
+            <ul>
+            	<li><code>type</code> 表示监听的事件类型的字符串。比如点击事件，可以是<code>"click"</code>.</li>
+                <li><code>listener</code> 侦听方法。在事情发生的时候，接受一个通知对象。</li>
+                <li><code>useCapture</code> 可选参数。如果为<code>true</code>，则表示用户希望启动从外及内的捕获获取。如果该参数未指定，<code>useCapture</code>为<code>false</code>，表示采用从里到外的冒泡获取。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>目前只做了基本事件的兼容处理。低版本IE浏览器不支持的有：</p>
+            <ol>
+            	<li><code>XMLHttpRequest</code>侦听</li>
+                <li><code>progress</code>audio/video等HTML5事件</li>
+            </ol>
+            <p>另外，IE6-IE8浏览器的第三个参数<code>useCapture</code>实际并未作用。<code>listener</code>传入对象（假设名为event）做了如下一下兼容性处理：</p>
+            <ol>
+            	<li><code>event</code>对象直接使用，而无需<code>window.event</code></li>
+            	<li><code>event.target</code></li>
+                <li><code>event.preventDefault()</code></li>
+            </ol>
+            <p>可见，目前只做了些常用属性或方法的兼容处理。欢迎你一同参与更多的建设。</p>
+            <h3>示例</h3>
+            <p><input type="button" id="testAddEvent" class="button" value="mouseover事情侦听"></p>
+            <p><span id="txtAddEvent" style="color:#666;">我在等待鼠标经过按钮哦~</span></p>
+            <h3>代码</h3>
+            <p>HTML</p>
+            <pre>&lt;span id="txtAddEvent" style="color:#666;">我在等待鼠标经过按钮哦~&lt;/span></pre>
+            <p>JS</p>
+            <pre>var eleTestAddEvent = document.querySelector("#testAddEvent")
+    , eleTxtAddEvent = document.querySelector("#txtAddEvent");
+if (eleTestAddEvent && eleTxtAddEvent) {
+    eleTestAddEvent.<mark>addEventListener</mark>("mouseover", function() {
+        eleTxtAddEvent.innerHTML = '经过人家啦！';	
+    });
+    eleTestAddEvent.<mark>addEventListener</mark>("mouseout", function() {
+        eleTxtAddEvent.innerHTML = '不要离开人家嘛！';	
+    });
+}</pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="removeEventListener" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>*.removeEventListener</h2>
+            <h3>概述</h3>
+            <p>移除注册的事件。</p>
+            <h3>语法</h3>
+            <pre><em>target</em>.removeEventListener(<em>type</em>, <em>listener</em>[, <em>useCapture</em>])</pre>
+            <ul>
+            	<li><code>type</code> 表示要移除的事件类型。</li>
+                <li><code>listener</code> 表示要移除的事件方法。</li>
+                <li><code>useCapture</code> 可选参数。要移除的事件是不是可以捕获的。此参数在本项目中没有作用，可忽略。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>暂无</p>
+            <h3>示例</h3>
+            <p>这个例子是这样的：<br>两个按钮，第一个按钮注册了两个方法，一个是图片尺寸变化，另外一个是图片位置随机变化。点击第二个按钮则移除“位置变化”这个注册事件。此时，再点击第一个按钮，看看效果如何？</p>
+            <p>
+            	<input type="button" id="testAddEventAB" class="button" value="我注册了两个方法？">
+                <input type="button" id="testRemoveEventB" class="button" value="我移除了第2个方法？">
+            </p>
+            <p style="height: 96px;">
+            	<img src="mm1.jpg" id="bingoRemoveEvent">
+            </p>
+            <h3>代码</h3>
+            <p>HTML</p>
+            <pre>&lt;img src="mm1.jpg" id="bingoRemoveEvent"></pre>
+            <p>JS</p>
+            <pre>var eleAddEventAB = document.querySelector("#testAddEventAB")
+    , eleRemoveEventB = document.querySelector("#testRemoveEventB");
+    
+var eleBingoRemoveEvent = document.querySelector("#bingoRemoveEvent");
+
+if (eleAddEventAB && eleRemoveEventB && eleBingoRemoveEvent) {
+    var eventAddA = function() {
+    	<span style="color: #999;">// 大小随机</span>
+        eleBingoRemoveEvent.style.width = Math.ceil(128 * Math.random()) + "px";
+    }, eventAddB = function() {
+    	<span style="color: #999;">// 位置随机</span>
+        eleBingoRemoveEvent.style.marginLeft = Math.ceil(128 * Math.random()) + "px";
+    };
+    
+    <span style="color: #999;">// 注册事件</span>
+    eleAddEventAB.addEventListener("click", eventAddA);
+    eleAddEventAB.addEventListener("click", eventAddB);
+    
+    <span style="color: #999;">// 移除事件</span>
+    eleRemoveEventB.addEventListener("click", function() {
+        eleAddEventAB.<mark>removeEventListener</mark>("click", eventAddB);
+        this.value += "√";
+    });
+}</pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="dispatchEvent" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>*.dispatchEvent</h2>
+            <h3>概述</h3>
+            <p>给DOM节点委派一个事件。</p>
+            <h3>语法</h3>
+            <pre><em>element</em>.dispatchEvent(<em>event</em>);</pre>
+            <ul>
+            	<li><code>event</code> 表示事件对象。在标准浏览器中，由<a href="#createEvent">document.createEvent</a>创建。不过这其实属于旧方法，目前，推荐使用<code>new Event()</code>. 但IE9似乎不支持新的用法，因此，本项目依然使用的是<code>document.createEvent</code>.</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>引入<code>dispatchEvent</code>的初衷是触发各类事件。类似jQuery中的<code>trigger</code>方法。</p>
+            <p><code>dispatchEvent</code>要想起作用，前面还需要两步，一是<a href="#createEvent">创建</a>，二是<a href="#initEvent">初始化</a>。具体可参考下面的示例代码。</p>
+            <p>在IE6~IE9中，参数<code>event</code>对象（如果是采用<code>document.createEvent</code>创建）有用的属性值有：</p>
+            <ol>
+            	<li><code>event.target</code> 事件元素</li>
+                <li><code>event.type</code> 事件类型</li>
+                <li><code>event.timeStamp</code> 事件执行时候的时间戳</li>
+            </ol>
+            <p>其他参数实际上只是个占位子的摆设。因此，<code>dispatchEvent</code>更适合自定义事件或者不依赖<code>event</code>事件对象的事件。</p>
+            <h3>示例</h3>
+            <p>创建一个基本的自定义事件，实现图片随机左边距(<code>margin-left</code>)效果。如下代码：</p>
+            <pre><span style="color: #999;">// 创建</span>
+var eventMarginLeft = document.createEvent("Event");
+var eleDispatch = document.querySelector("#bingoDispatch");
+if (eleDispatch) {
+    eleDispatch.addEventListener("marginLeft", function() {
+        this.style.marginLeft = Math.round(Math.random() * 100)	+ "px";
+    });
+    <span style="color: #999;">// 初始化</span>
+    eventMarginLeft.initEvent("marginLeft");
+}</pre>
+            <p><input type="button" id="testDispatchEvent" class="button" value="点击我执行：eleDispatch.dispatchEvent(eventMarginLeft)"></p>
+            <p>
+            	<img src="mm1.jpg" id="bingoDispatch">
+            </p>
+            <h3>代码</h3>
+            <p>HTML</p>
+            <pre>&lt;img src="mm1.jpg" id="bingoDispatch"></pre>
+            <p>JS</p>
+            <pre>var eventMarginLeft = document.createEvent("Event");
+var eleDispatch = document.querySelector("#bingoDispatch");
+if (eleDispatch) {
+    eleDispatch.addEventListener("marginLeft", function() {
+        this.style.marginLeft = Math.round(Math.random() * 100)	+ "px";
+    });
+    eventMarginLeft.initEvent("marginLeft");
+}	
+var eleTestDispatch = document.querySelector("#testDispatchEvent");
+if (eleTestDispatch) eleTestDispatch.addEventListener("click", function() {
+    eleDispatch.<mark>dispatchEvent</mark>(eventMarginLeft);	
+});</pre>
+        </div>
+    </div>    
+    <!-- another API -->
+    <div id="createEvent" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>document.createEvent</h2>
+            <h3>概述</h3>
+            <p>创建指定类型的事件。</p>
+            <h3>语法</h3>
+            <pre>var <em>event</em> = document.createEvent(<em>type</em>);</pre>
+            <ul>
+            	<li><code>type</code> 表示事件的类别。本项目支持如下值：<code>"Event"</code>, <code>"HTMLEvents"</code>, <code>"MouseEvents"</code>, <code>"UIEvents"</code>. 并不支持DOM 3 <code>"TextEvent"</code>, <code>HTMLEvent</code>, <code>MouseEvent</code>, <code>KeyboardEvent</code>等其他类别，否则在IE6~8浏览器下会抛出异常。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>实际上，在IE6~8浏览器中，<code>type</code>类别实际并没有多少实际的差异。不过，从兼容统一角度讲，还是根据情况使用合适的类别。</p>
+            <h3>示例</h3>
+            <p>参考<a href="#dispatchEvent">*.dispatchEvent</a>中的示例。</p>
+            <h3>代码</h3>
+            <p>暂无</p>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="initEvent" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>initEvent | initMouseEvent | initUIEvent</h2>
+            <h3>概述</h3>
+            <p>初始化<code>document.createEvent</code>返回事件。 <span style="color: #999; margin-left: 1em;">// 作者自述: 这一连串使用其实很啰嗦，在新的构造器事件生成中，已经没有这个啰嗦的初始化步骤。</span></p>
+            <h3>语法</h3>
+            <pre><em>event</em>.initEvent(<em>eventType</em>, <em>canBubble</em>, <em>cancelable</em>);</pre>
+            <pre><em>event</em>.initMouseEvent(<em>eventType</em>, <em>canBubble</em>, <em>cancelable</em>, <em>view</em>, 
+            <em>detail</em>, <em>screenX</em>, <em>screenY</em>, <em>clientX</em>, <em>clientY</em>,
+            <em>ctrlKey</em>, <em>altKey</em>, <em>shiftKey</em>, <em>metaKey</em>,
+            <em>button</em>, <em>relatedTarget</em>);</pre>
+            <pre><em>event</em>.initUIEvent(<em>eventType</em>, <em>canBubble</em>, <em>cancelable</em>, <em>view</em>, <em>detail</em>);</pre>
+            <ul>
+            	<li><code>eventType</code> 表示事件的类型，例如<code>"click"</code>或者自定义注册的事件类型，如<code>"marginLeft"</code>.</li>
+                <li><code>canBubble</code> 可选参数。表示事件是否冒泡。默认为<code>false</code>.</li>
+                <li><code>cancelable</code> 可选参数。表示是否可以用<code>preventDefault()</code>方法取消事件，默认为<code>false</code>.</li>
+                <li><code>view</code> 可选参数。表示...</li>
+                <li>...</li>
+                <li>...</li>
+                <li>抱歉，条目过多... <code>event</code>对象各个属性含义请大家自行查找相关资料。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>以上初始化方法的参数可以通过<code>addEventListener</code>注册事件的<code>event</code>对象获得，于是，通过这个，我们可以区分是主动触发行为（鼠标点击）还是代码触发行为（<code>dispatchEvent</code>）。</p>
+            <p><code>document.createEvent</code>, <code>event.initEvent</code>, <code>element.disptachEvent</code>. 实际是触发<code>addEventListener</code>注册事件的三步曲。
+            <p>于是，<code>element</code>元素上注册的<code>click</code>事件就可以被执行了。行为表现有些类似jQuery中的<code>trigger</code>.</p>
+            <p>这里的对象初始化方法与事件类别是一一对应的，如下：</p>
+            <table>
+            	<tr><td>Event</td><td>initEvent</td></tr>
+                <tr><td>HTMLEvents</td><td>initEvent</td></tr>
+                <tr><td>MouseEvents</td><td>initMouseEvent</td></tr>
+                <tr><td>UIEvents</td><td>initUIEvent</td></tr>
+            </table>
+            <p>其他一些事件类别，如<code>TextEvent</code>为DOM3级别，这里不予以支持。</p>
+            <h3>示例</h3>
+            <p>
+            	<input type="button" id="testClickAdded" class="button" value="我绑定了一个点击事件">
+                <input type="button" id="testClickDispatch" class="button" value="点击我也可以触发">
+            </p>
+            <p>
+            	<img src="mm1.jpg" id="bingoInitEvent">
+            </p>
+            <h3>代码</h3>
+            <p>HTML</p>
+            <pre>&lt;img src="mm1.jpg" id="bingoInitEvent"></pre>
+            <p>JS</p>
+            <pre>var eleClickAdded = document.querySelector("#testClickAdded")
+    eleClickDispatch = document.querySelector("#testClickDispatch");
+var eleBingoInitEvent = document.querySelector("#bingoInitEvent");
+
+if (eleClickAdded && eleClickDispatch && eleBingoInitEvent) {
+    eleClickAdded.addEventListener("click", function() {
+        eleBingoInitEvent.style.marginLeft = Math.ceil(100 * Math.random()) + "px";	
+    });
+    <span style="color: #999;">// 创建</span>
+    var initEventCreate = document.createEvent("MouseEvents");
+    <span style="color: #999;">// 初始化</span>
+    initEventCreate.<mark>initMouseEvent</mark>("click");
+    <span style="color: #999;">// 点击触发</span>
+    eleClickDispatch.addEventListener("click", function() {
+        eleClickAdded.dispatchEvent(initEventCreate);	
+    });
+}</pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="input" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>input</h2>
+            <h3>概述</h3>
+            <p>表示表单元素的输入事件。此事件为HTML5新增。</p>
+            <h3>语法</h3>
+            <pre>element.addEventListener(<em>"input"</em>, fn);</pre>
+            <h3>其他说明</h3>
+            <p>比方说Autocomplete这些组件效果，需要侦听用户的输入行为。传统方法为侦听<code>keydown</code>或<code>keyup</code>等键盘事件，但存在一个问题，就是用户鼠标右键粘贴内容的时候是无法捕获的。还需要再做额外的处理，这人力成本显然上升了。</p>
+            <p><code>input</code>事件专为这种情况诞生。只要输入框里面有内容输入，才会执行响应的事件。性能更高，适应性更好。</p>
+            <h3>示例</h3>
+            <p>还可以输入<span id="inputLeftText">140</span>字：</p>
+            <p><textarea id="areaTextInput" cols="50" rows="5" placeholder="别愣着，赶快输入内容..."></textarea></p>
+            <h3>代码</h3>
+            <pre>还可以输入&lt;span id="inputLeftText">140&lt;/span>字：
+&lt;textarea id="areaTextInput" cols="50" rows="5" placeholder="别愣着，赶快输入内容...">&lt;/textarea></pre>
+            <p>JS</p>
+            <pre>var eleAreaInput = document.querySelector("#areaTextInput")
+  , eleNumLeftInput = document.querySelector("#inputLeftText");
+if (eleAreaInput && eleNumLeftInput) {
+    eleAreaInput.addEventListener("input", function() {
+        var left = 140 - this.value.trim().length;
+        if (left < 10) {
+            eleNumLeftInput.style.color = "#cd0000";
+        } else {
+            eleNumLeftInput.style.color = "";	
+        }
+        eleNumLeftInput.innerHTML = left;
+    });	
+}</pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="hashchange" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>window.onhashchange</h2>
+            <h3>概述</h3>
+            <p>url地址hash改变时候触发。</p>
+            <h3>语法</h3>
+            <pre>window.onhashchange = function(event) {
+    <span style="color: #999;">// 该干嘛干嘛嘛</span>
+};</pre>
+			<p><code>event</code>对象的参数如下：</p>
+            <ul>
+            	<li><code>target</code> 表示浏览器上下文(<code>window</code>).</li>
+                <li><code>type</code> 表示事件类型。</li>
+                <li><code>oldURL</code> 表示之前的URL地址。</li>
+                <li><code>newURL</code> 当前的URL地址。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>IE6-IE8浏览器下，不支持<code>window.addEventListener("hashchange", fn)</code>的用法。</p>
+            <p>IE8浏览器下，原本不支持<code>oldURL</code>和<code>newURL</code>. 这里做了重置处理，也是支持这两个参数。不过恕我水平有限，还需要做一个额外的小处理。就是在事件的最上面加上，以阻止默认支持的方法执行：</p>
+            <pre>event = event || {};</pre>
+            <p>或者：</p>
+            <pre>if (!event) return;</pre>
+            <h3>示例</h3>
+            <p>点击下面三个文字链接：</p>
+            <p><a href="#red" class="link">变红色</a> &nbsp; <a href="#blue" class="link">变蓝色</a> &nbsp; <a href="#yellow" class="link">变黄色</a></p>
+            <p><span id="hashChangeColor">你的意思是我会变色？</span></p>
+            <h3>代码</h3>
+            <p>HTML</p>
+            <pre>&lt;a href="#red" class="link">变红色&lt;/a> &lt;a href="#blue" class="link">变蓝色&lt;/a> &lt;a href="#yellow" class="link">变黄色&lt;/a>
+&lt;span id="hashChangeColor">你的意思是我会变色？&lt;/span></pre>
+            <p>JS</p>
+            <pre>var eleHashChange = document.querySelector("#hashChangeColor");
+if (eleHashChange) {
+    var hashKeyColor = {
+        red: "红色",
+        blue: "绿色",
+        yellow: "黄色"	
+    };
+    window.<mark>onhashchange</mark> = function(event) {
+        <span style="color: #999;">// for IE8</span>
+        event = event || {};
+        <span style="color: #999;">// for all</span>
+        var oldUrl = event.oldURL, newUrl = event.newURL;
+        var hashOld = '', hashNew = '';
+        if (oldUrl && newUrl) {
+            hashOld = oldUrl.split("#")[1] || '';
+            hashNew = newUrl.split("#")[1] || '';
+            <span style="color: #999;">// 颜色变化</span>
+            eleHashChange.style.color = hashKeyColor[hashNew]? hashNew: '';
+            <span style="color: #999;">// 变化日志</span>
+            eleHashChange.insertAdjacentHTML("beforeEnd", 
+                '&lt;br>&lt;span style="color: #666;">颜色从' + (hashKeyColor[hashOld] || '继承色') + '变成' + (hashKeyColor[hashNew] || '继承色;&lt;/span>')
+            );				
+        }
+    };	
+}</pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="create" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Object.create</h2>
+            <h3>概述</h3>
+            <p>根据指定的原型对象和属性创建新的对象。</p>
+            <h3>语法</h3>
+            <pre>Object.create(proto [, propertiesObject ])</pre>
+            <ul>
+            	<li><code>proto</code> 表示新创建对象的原型。</li>
+                <li><code>propertiesObject</code> 可选参数。表示一个对象值，可以包含若干个属性，属性名为新建对象的属性名，属性值为那个属性的属性描述符对象。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>如果<code>proto</code>参数的值不是<code>null</code>或者对象，则会抛出<code>TypeError</code>异常。</p>
+            <h3>示例</h3>
+            <p>可参考MDN: <a href="https://developer.mozilla.org/zh-CN/docs/JavaScript/Reference/Global_Objects/Object/create">Object.create()</a>.</p>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="keys" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Object.keys</h2>
+            <h3>概述</h3>
+            <p>返回对象可枚举的属性集合数组。</p>
+            <h3>语法</h3>
+            <pre>Object.keys(obj)</pre>
+            <ul>
+            	<li><code>obj</code> 表示用来枚举属性的对象。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>只能返回被枚举的属性关键字。ES5中还有个<a href="http://msdn.microsoft.com/zh-cn/library/ie/ff688126(v=vs.94).aspx">Object.getOwnPropertyNames</a>方法，也是IE9+支持，包括不可枚举的属性也可以返回。这个貌似不太好做兼容处理，因此，只有这里的<code>Object.keys()</code>.</p>
+            <h3>示例</h3>
+            <p>下面示例代码来自MDN，注释有翻译：</p>
+            <pre>var arr = ["a", "b", "c"];
+alert(Object.keys(arr)); <span style="color: #999;">// 弹出 "0,1,2"</span>
+
+<span style="color: #999;">// 类数组对象</span>
+var obj = { 0 : "a", 1 : "b", 2 : "c"};
+alert(Object.keys(obj)); // 弹出 "0,1,2"
+
+<span style="color: #999;">// 类数组对象，关键字顺序随机</span>
+var an_obj = { 100: "a", 2: "b", 7: "c"};
+alert(Object.keys(an_obj)); <span style="color: #999;">// 弹出 "2, 7, 100"</span>
+
+<span style="color: #999;">// getFoo是个不可枚举的属性</span>
+var my_obj = Object.create({}, { getFoo : { value : function () { return this.foo } } });
+my_obj.foo = 1;
+
+alert(Object.keys(my_obj)); <span style="color: #999;">// 仅会弹出foo</span></pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="now" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Date.now</h2>
+            <h3>概述</h3>
+            <p>获取当前的时间戳。</p>
+            <h3>语法</h3>
+            <pre>Date.now()</pre>
+            <h3>其他说明</h3>
+            <p>暂无</p>
+            <h3>示例</h3>
+            <p><input type="button" id="testDateNow" class="button" value="当前时间戳是？"></p>
+            <p><span id="textDateNow">&nbsp;</span></p>
+            <h3>代码</h3>
+            <p>JS</p>
+            <pre>var eleTestDateNow = document.querySelector("#testDateNow")
+  , eleTextDateNow = document.querySelector("#textDateNow");
+if (eleTestDateNow && eleTextDateNow) {
+    eleTestDateNow.addEventListener("click", function() {
+        eleTextDateNow.innerHTML = <mark>Date.now</mark>();	
+    });
+}</pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="bind" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Function.bind</h2>
+            <h3>概述</h3>
+            <p>改变函数的执行上下文，以及参数传递。</p>
+            <h3>语法</h3>
+            <pre><em>fun</em>.bind(<em>thisArg</em>[, <em>arg1</em>[, <em>arg2</em>[, ...]]])</pre>
+            <ul>
+            	<li><code>thisArg</code> 表示<code>fun</code>执行时候其中的<code>this</code>指向。</li>
+                <li><code>arg1, arg2, ...</code> 表示阿公阿婆，兄弟姐妹...参数。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>别看这里介绍少，这个方法非常实用，也非常常用。您有兴趣可以查看我之前写的“<a href="http://www.zhangxinxu.com/wordpress/?p=2689">ECMAScript 5中bind方法、自定义及小拓展</a>”一文娱乐下！</a></p>
+            <h3>示例</h3>
+            <p>暂无</p>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="trim" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>String.trim</h2>
+            <h3>概述</h3>
+            <p>去除字符串首尾空格。</p>
+            <h3>语法</h3>
+            <pre>String.trim()</pre>
+            <h3>其他说明</h3>
+            <p>耳熟能详，司空见惯。</p>
+            <h3>示例</h3>
+            <pre>(" haha ").trim();  <span style="color:#999">// "haha"</span></pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="isArray" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Array.isArray</h2>
+            <h3>概述</h3>
+            <p>检测对象是否是数组。</p>
+            <h3>语法</h3>
+            <pre>Array.isArray(obj);</pre>
+            <ul>
+            	<li><code>obj</code> 表示试炼的对象。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>返回Boolean值。</p>
+            <h3>示例</h3>
+            <pre>Array.isArray([]);  <span style="color:#999">// true</span></pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="forEach" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Array.forEach</h2>
+            <h3>概述</h3>
+            <p>遍历数组</p>
+            <h3>语法</h3>
+            <pre>[].forEach(function(value, index, array) {
+    <span style="color:#999">// ...</span>
+});</pre>
+            <ul>
+            	<li><code>value</code> 表示遍历的数组的值。</li>
+                <li><code>index</code> 表示索引。</li>
+                <li><code>array</code> 表示数组本身。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>具体使用和一些说明可参考我的之前的文章“<a href="http://www.zhangxinxu.com/wordpress/?p=3220">ES5中新增的Array方法详细说明</a>”。内有诸多源代码示例，还有<a href="http://www.zhangxinxu.com/study/201304/array-foreach.html">demo页面</a>。</p>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="map" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Array.map</h2>
+            <h3>概述</h3>
+            <p>数组“映射”</p>
+            <h3>语法</h3>
+            <pre>[].map(function(value, index, array) {
+    <span style="color:#999">// ...</span>
+});</pre>
+            <ul>
+            	<li><code>value</code> 表示遍历的数组的值。</li>
+                <li><code>index</code> 表示索引。</li>
+                <li><code>array</code> 表示数组本身。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>具体使用和一些说明可参考我的之前的文章“<a href="http://www.zhangxinxu.com/wordpress/?p=3220">ES5中新增的Array方法详细说明</a>”。内有诸多源代码示例，还有<a href="http://www.zhangxinxu.com/study/201304/array-map.html">demo页面</a>。</p>
+            <h3>示例</h3>
+            <pre>var data = [1, 2, 3, 4];
+
+var arrayOfSquares = data.map(function (item) {
+  return item * item;
+});
+
+alert(arrayOfSquares); <span style="color:#999">// 1, 4, 9, 16</span></pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="filter" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Array.filter</h2>
+            <h3>概述</h3>
+            <p>数组“过滤”</p>
+            <h3>语法</h3>
+            <pre>[].filter(function(value, index, array) {
+    <span style="color:#999">// ...</span>
+});</pre>
+            <ul>
+            	<li><code>value</code> 表示遍历的数组的值。</li>
+                <li><code>index</code> 表示索引。</li>
+                <li><code>array</code> 表示数组本身。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>根据<code>function</code>返回的是<code>true</code>还是<code>false</code>过滤原数组返回新数组。</p>
+            <p>具体使用和一些说明可参考我的之前的文章“<a href="http://www.zhangxinxu.com/wordpress/?p=3220">ES5中新增的Array方法详细说明</a>”。内有诸多源代码示例，还有<a href="http://www.zhangxinxu.com/study/201304/array-filter.html">demo页面</a>。</p>
+            <h3>示例</h3>
+            <pre>var data = [0, 1, 2, 3];
+var arrayFilter = data.filter(function(item) {
+    return item;
+});
+console.log(arrayFilter);  <span style="color:#999">// [1, 2, 3]</span></pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="some" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Array.some</h2>
+            <h3>概述</h3>
+            <p>是否“某些项”合乎条件。返回Boolean值。</p>
+            <h3>语法</h3>
+            <pre>[].some(function(value, index, array) {
+    <span style="color:#999">// ...</span>
+});</pre>
+            <ul>
+            	<li><code>value</code> 表示遍历的数组的值。</li>
+                <li><code>index</code> 表示索引。</li>
+                <li><code>array</code> 表示数组本身。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>具体使用和一些说明可参考我的之前的文章“<a href="http://www.zhangxinxu.com/wordpress/?p=3220">ES5中新增的Array方法详细说明</a>”。内有诸多源代码示例，还有<a href="http://www.zhangxinxu.com/study/201304/array-some.html">demo页面</a>。</p>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="every" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Array.every</h2>
+            <h3>概述</h3>
+            <p>是否“所有项”合乎条件。返回Boolean值。</p>
+            <h3>语法</h3>
+            <pre>[].every(function(value, index, array) {
+    <span style="color:#999">// ...</span>
+});</pre>
+            <ul>
+            	<li><code>value</code> 表示遍历的数组的值。</li>
+                <li><code>index</code> 表示索引。</li>
+                <li><code>array</code> 表示数组本身。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>具体使用和一些说明可参考我的之前的文章“<a href="http://www.zhangxinxu.com/wordpress/?p=3220">ES5中新增的Array方法详细说明</a>”。内有诸多源代码示例，还有<a href="http://www.zhangxinxu.com/study/201304/array-every.html">demo页面</a>。</p>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="indexOf" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Array.indexOf</h2>
+            <h3>概述</h3>
+            <p>匹配元素在数组中的索引位置。如果没有匹配项，返回<code>-1</code>.</p>
+            <h3>语法</h3>
+            <pre>array.indexOf(searchElement[, fromIndex])</pre>
+            <ul>
+            	<li><code>searchElement</code> 表示要匹配的对象。</li>
+                <li><code>fromIndex</code> 表示起始的索引位置。可缺省，表示从<code>0</code>开始。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>具体使用和一些说明可参考我的之前的文章“<a href="http://www.zhangxinxu.com/wordpress/?p=3220">ES5中新增的Array方法详细说明</a>”。内有诸多源代码示例，还有<a href="http://www.zhangxinxu.com/study/201304/array-indexof.html">demo页面</a>。</p>
+            <h3>示例</h3>
+            <pre>var data = [2, 5, 7, 3, 5];
+
+console.log(data.indexOf(5, "x")); <span style="color:#999">// 1 ("x"被忽略)</span>
+console.log(data.indexOf(5, "3")); <span style="color:#999">// 4 (从3号位开始搜索)</span>
+
+console.log(data.indexOf(4)); <span style="color:#999">// -1 (未找到)</span>
+console.log(data.indexOf("5")); <span style="color:#999">// -1 (未找到，因为5 !== "5")</span></pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="lastIndexOf" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Array.lastIndexOf</h2>
+            <h3>概述</h3>
+            <p><code>lastIndexOf</code>方法与<code>indexOf</code>方法类似。只是<code>lastIndexOf</code>是从字符串的末尾开始查找，而不是从开头。还有一个不同就是<code>fromIndex</code>的默认值是<code>array.length - 1</code>而不是<code>0</code>.</p>
+            <h3>语法</h3>
+            <pre>array.lastIndexOf(searchElement[, fromIndex])</pre>
+            <ul>
+            	<li><code>searchElement</code> 表示要匹配的对象。</li>
+                <li><code>fromIndex</code> 表示起始的索引位置。可缺省，表示从<code>array.length - 1</code>开始。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>具体使用和一些说明可参考我的之前的文章“<a href="http://www.zhangxinxu.com/wordpress/?p=3220">ES5中新增的Array方法详细说明</a>”。内有诸多源代码示例，还有<a href="http://www.zhangxinxu.com/study/201304/array-lastindexof.html">demo页面</a>。</p>
+            <h3>示例</h3>
+            <pre>var data = [2, 5, 7, 3, 5];
+
+console.log(data.lastIndexOf(5)); <span style="color:#999">// 4</span>
+console.log(data.lastIndexOf(5, 3)); <span style="color:#999">// 1 (从后往前，索引值小于3的开始搜索)</span>
+
+console.log(data.lastIndexOf(4)); <span style="color:#999">// -1 (未找到)</span></pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="reduce" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Array.reduce</h2>
+            <h3>概述</h3>
+            <p>中文意思为“减少”、“约简”。不过，从功能来看，我个人是无法与“减少”这种含义联系起来的，反而更接近于“迭代”、“递归(recursion)”。</p>
+            <h3>语法</h3>
+            <pre>array.reduce(callback[, initialValue])</pre>
+			<ul>
+            	<li>
+                	<code>callback</code>支持下面4个参数：
+                	<ul>
+                        <li><code>previous</code> 表示之前值。</li>
+                        <li><code>current</code> 表示当前值。</li>
+                        <li><code>index</code> 表示索引。</li>
+                        <li><code>array</code> 表示数组本身。</li>
+                    </ul>
+                </li>
+                <li><code>initialValue</code> 参数可选。表示初始值。若指定，则当作最初使用的<code>previous</code>值；如果缺省，则使用数组的第一个元素作为<code>previous</code>初始值，同时<code>current</code>往后排一位，相比有<code>initialValue</code>值少一次迭代。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>如果您尚未明白该API的使用，可参考我的之前的文章“<a href="http://www.zhangxinxu.com/wordpress/?p=3220">ES5中新增的Array方法详细说明</a>”。内有诸多源代码示例，还有<a href="http://www.zhangxinxu.com/study/201304/array-reduce.html">demo页面</a>。</p>
+            
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="reduceRight" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>Array.reduceRight</h2>
+            <h3>概述</h3>
+            <p><code>reduceRight</code>跟<code>reduce</code>相比，用法类似。实现上差异在于<code>reduceRight</code>是从数组的末尾开始实现。</p>
+            <h3>语法</h3>
+            <pre>array.reduceRight(callback[, initialValue])</pre>
+			<ul>
+            	<li>
+                	<code>callback</code>支持下面4个参数：
+                	<ul>
+                        <li><code>previous</code> 表示之前值。</li>
+                        <li><code>current</code> 表示当前值。</li>
+                        <li><code>index</code> 表示索引。</li>
+                        <li><code>array</code> 表示数组本身。</li>
+                    </ul>
+                </li>
+                <li><code>initialValue</code> 参数可选。表示初始值。若指定，则当作最初使用的<code>previous</code>值；如果缺省，则使用数组的第一个元素作为<code>previous</code>初始值，同时<code>current</code>往后排一位，相比有<code>initialValue</code>值少一次迭代。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>具体使用和一些说明可参考我的之前的文章“<a href="http://www.zhangxinxu.com/wordpress/?p=3220">ES5中新增的Array方法详细说明</a>”。内有诸多源代码示例，还有<a href="http://www.zhangxinxu.com/study/201304/array-reduceright.html">demo页面</a>。</p>
+        </div>
+    </div>
+    <!-- another API -->
+    <!--<div id="querySelectorAll" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>querySelector</h2>
+            <h3>概述</h3>
+            <p>概述</p>
+            <h3>语法</h3>
+            <ul>
+            	<li><code>xxx</code> 表示。</li>
+            </ul>
+            <h3>其他说明</h3>
+            <p>么么哒</p>
+            <h3>示例</h3>
+            <p><input type="button" id="testButton3" class="button" value="class为bingA+bingoB的躲猫猫"></p>
+            <p>
+            	<img src="mm1.jpg" class="bingoA bingoB">
+            </p>
+            <h3>代码</h3>
+            <p>HTML</p>
+            <pre></pre>
+            <p>JS</p>
+            <pre></pre>
+        </div>
+    </div>-->
+</div>
+
+<div class="zxx_footer">
+	<div class="zxx_constr">
+    	<p class="zxx_copyright">
+            Copyright &copy; <a href="http://www.zhangxinxu.com/">张鑫旭-鑫空间-鑫生活</a>
+            |
+            <a href="http://www.zhangxinxu.com/wordpress/?p=3758">该篇相关文章</a>
+            |
+            <a href="https://github.com/zhangxinxu/ieBetter">GitHub地址</a>
+        </p>
+    </div>
+</div>
+<script>
+if (!document.addEventListener) {
+	// IE6~IE8
+	document.write('<script src="ieBetter.js"><\/script>');	
+} else if (!history.pushState) {
+	// IE9
+	document.write('<script src="ie9Fixed.js"><\/script>');
+}
+</script>
+
+<script>
+(function() {
+	// 文档内嵌方法	
+	var eleTestButton1 = document.querySelector("#testButton1");
+	if (eleTestButton1) {
+		eleTestButton1.addEventListener("click", function() {
+			var eleBingo = document.querySelector(".bingo");	
+			if (eleBingo) {
+				if (!eleBingo.style.verticalAlign) {
+					eleBingo.style.verticalAlign = "8px";
+					this.value = "给我回来！";
+				} else {
+					eleBingo.style.verticalAlign = "";
+					this.value = "走两步！";
+				}				
+			}
+		});	
+	}
+	
+	var eleTestButton2 = document.querySelector("#testButton2");
+	if (eleTestButton2 && !eleTestButton2.clicked) {
+		eleTestButton2.addEventListener("click", function() {
+			var eleBingoAll = document.querySelectorAll(".bingoAll");	
+			[].slice.call(eleBingoAll).forEach(function(eleBingo) {
+				eleBingo.style.padding = "3px";	
+				eleBingo.style.border = "1px solid #aaa";	
+			});
+			eleTestButton2.clicked = true;
+		});	
+	}
+	
+	var eleTestButton3 = document.querySelector("#testButton3");
+	if (eleTestButton3) {
+		eleTestButton3.addEventListener("click", function() {
+			var eleBingClassName = document.getElementsByClassName("bingoA bingoB")[0];			
+			if (eleBingClassName) {
+				var visibility = eleBingClassName.style.visibility;
+				if (visibility == "hidden") {
+					this.value = "点击隐藏";	
+					eleBingClassName.style.visibility = "visible";
+				} else {
+					this.value = "点击显示";	
+					eleBingClassName.style.visibility = "hidden";
+				}
+			}
+		});	
+	}
+	
+	// addEventListener
+	var eleTestAddEvent = document.querySelector("#testAddEvent")
+	    , eleTxtAddEvent = document.querySelector("#txtAddEvent");
+	if (eleTestAddEvent && eleTxtAddEvent) {
+		eleTestAddEvent.addEventListener("mouseover", function() {
+			eleTxtAddEvent.innerHTML = '经过人家啦！';	
+		});
+		eleTestAddEvent.addEventListener("mouseout", function() {
+			eleTxtAddEvent.innerHTML = '不要离开人家嘛！';	
+		});
+	}
+	
+	// removeEventListener
+	var eleAddEventAB = document.querySelector("#testAddEventAB")
+		, eleRemoveEventB = document.querySelector("#testRemoveEventB");
+		
+	var eleBingoRemoveEvent = document.querySelector("#bingoRemoveEvent");
+	
+	if (eleAddEventAB && eleRemoveEventB && eleBingoRemoveEvent) {
+		var eventAddA = function() {
+			eleBingoRemoveEvent.style.width = Math.ceil(128 * Math.random()) + "px";
+		}, eventAddB = function() {
+			eleBingoRemoveEvent.style.marginLeft = Math.ceil(128 * Math.random()) + "px";
+		};
+		
+		// add
+		eleAddEventAB.addEventListener("click", eventAddA);
+		eleAddEventAB.addEventListener("click", eventAddB);
+		
+		// remove
+		eleRemoveEventB.addEventListener("click", function() {
+			eleAddEventAB.removeEventListener("click", eventAddB);
+			this.value += "√";
+		});
+	}
+	
+	// dispatchEvent
+	var eventMarginLeft = document.createEvent("Event");
+	var eleDispatch = document.querySelector("#bingoDispatch");
+	if (eleDispatch) {
+		eleDispatch.addEventListener("marginLeft", function() {
+			this.style.marginLeft = Math.round(Math.random() * 100)	+ "px";
+		});
+		eventMarginLeft.initEvent("marginLeft");
+	}	
+	var eleTestDispatch = document.querySelector("#testDispatchEvent");
+	if (eleTestDispatch) eleTestDispatch.addEventListener("click", function() {
+		eleDispatch.dispatchEvent(eventMarginLeft);	
+	});
+	
+	// initEvent
+	var eleClickAdded = document.querySelector("#testClickAdded")
+		eleClickDispatch = document.querySelector("#testClickDispatch");
+	var eleBingoInitEvent = document.querySelector("#bingoInitEvent");
+	
+	if (eleClickAdded && eleClickDispatch && eleBingoInitEvent) {
+		eleClickAdded.addEventListener("click", function() {
+			eleBingoInitEvent.style.marginLeft = Math.ceil(100 * Math.random()) + "px";	
+		});
+		// 创建
+		var initEventCreate = document.createEvent("MouseEvents");
+		// 初始化
+		initEventCreate.initMouseEvent("click");
+		// 点击触发
+		eleClickDispatch.addEventListener("click", function() {
+			eleClickAdded.dispatchEvent(initEventCreate);	
+		});
+	}
+	
+	// input
+	var eleAreaInput = document.querySelector("#areaTextInput")
+	  , eleNumLeftInput = document.querySelector("#inputLeftText");
+	if (eleAreaInput && eleNumLeftInput) {
+		eleAreaInput.addEventListener("input", function() {
+			var left = 140 - this.value.trim().length;
+			if (left < 10) {
+				eleNumLeftInput.style.color = "#cd0000";
+			} else {
+				eleNumLeftInput.style.color = "";	
+			}
+			eleNumLeftInput.innerHTML = left;
+		});	
+	}
+	
+	// hashchange
+	var eleHashChange = document.querySelector("#hashChangeColor");
+	if (eleHashChange) {
+		var hashKeyColor = {
+			red: "红色",
+			blue: "绿色",
+			yellow: "黄色"	
+		};
+		window.onhashchange = function(event) {
+			// for IE8
+			event = event || {};
+			var oldUrl = event.oldURL, newUrl = event.newURL;
+			var hashOld = '', hashNew = '';
+			if (oldUrl && newUrl) {
+				hashOld = oldUrl.split("#")[1] || '';
+				hashNew = newUrl.split("#")[1] || '';
+				// 颜色变化
+				eleHashChange.style.color = hashKeyColor[hashNew]? hashNew: '';
+				eleHashChange.insertAdjacentHTML("beforeEnd", 
+					'<br><span style="color: #666;">颜色从' + (hashKeyColor[hashOld] || '继承色') + '变成' + (hashKeyColor[hashNew] || '继承色;</span>')
+				);				
+			}
+		};	
+	}
+	
+	// Date.now
+	var eleTestDateNow = document.querySelector("#testDateNow")
+	  , eleTextDateNow = document.querySelector("#textDateNow");
+	if (eleTestDateNow && eleTextDateNow) {
+		eleTestDateNow.addEventListener("click", function() {
+			eleTextDateNow.innerHTML = Date.now();	
+		});
+	}
+})();
+
+//------------------------------我是分割线-----------------------------------//
+
+(function() {
+	// 页面自身的一些方法，例如头部底部隐藏，选项切换等
+	var eleHideButton = document.querySelector("#hideHeadFoot");
+	if (eleHideButton) {
+		eleHideButton.addEventListener("click", function() {
+			document.body.className = "zxx_only_body";	
+		});	
+		// ESC退出
+		document.addEventListener("keyup", function(event) {
+			if (event && event.keyCode == 27) {
+				document.body.className = "";
+			}
+		});
+	}
+	
+	// 左侧的选项卡切换
+	var eleNavOn = null, elePanelOn = null, clNav = "zxx_api_a", clNavOn = "zxx_api_on";
+	[].slice.call(document.querySelectorAll("#zxxSlide a")).forEach(function(nav) {
+		if (nav.className.indexOf(clNavOn) != -1 && /#/.test(nav.href)) {
+			eleNavOn = nav;
+			elePanelOn = document.querySelector("#" + nav.href.split("#")[1]);
+		}
+		nav.addEventListener("click", function(event) {
+			var id = this.href.split("#")[1], target = null;
+
+			if (id && eleNavOn != this && (target = document.querySelector("#" + id))) {
+				if (eleNavOn) eleNavOn.className = clNav;
+				if (elePanelOn) elePanelOn.style.visibility = "hidden";
+				this.className = [clNav, clNavOn].join(" ");
+				target.style.visibility = "visible";
+				// 移花接木
+				eleNavOn = this;
+				elePanelOn = target;
+			}
+		}, false);
+	});
+	
+	// 如果载入进来，有hash
+	var eleNavHash = document.querySelector("a[href='" + location.hash + "']");
+	if (eleNavHash) eleNavHash.click();
+	
+	window.addEventListener("popstate", function() {
+		var eleNavHash = document.querySelector("a[href='" + location.hash + "']");
+		if (eleNavHash) eleNavHash.click();
+	});	
+})();
+</script>
+</body>
+</html>
