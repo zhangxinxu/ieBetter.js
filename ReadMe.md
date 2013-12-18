@@ -6,9 +6,9 @@ It's created for IE6-IE8.
 
 Why need this?
 -----------------
-Modern browser is so powerfull. For some project, this is no any reason to include a JavaScript library. For example, jQuery.
+Modern browsers are so powerfull. For some small project, this is no any reason to include a large JavaScript library. For example, jQuery, Kissy and so on.
 
-So, what we need is just a file of JavaScript witch is created only for IE6-IE8, and the use of this file is that it make IE6-IE8 like a modern browser(Chrome, IE9+, ...)
+So, what we need is just a file of JavaScript witch is created only for IE6-IE8, and make IE6-IE8 like a modern browser(Chrome, IE9+, ...).
 
 How to use?
 ----------------
@@ -31,7 +31,7 @@ Good luck for you!
 
 APIs and Demos
 ------------------
-So far, the APIs that has supported are: <br>
+So far, the APIs that has supported are: <br><br>
 <strong>• 选择器相关API</strong><br>
 *.querySelector<br>
 *.querySelectorAll<br>
@@ -48,7 +48,7 @@ window.onhashchange<br><br>
 window.getComputedStyle<br><br>
 <strong>• ES5 Object扩展</strong><br>
 Object.create<br>
-Object.keys<br>
+Object.keys<br><br>
 <strong>• Date对象</strong><br>
 Date.now<br><br>
 <strong>• ES5 Function扩展</strong><br>
@@ -75,6 +75,10 @@ Still, you can [visit here](http://www.zhangxinxu.com/wordpress/?p=3835) to some
 License
 -------------------
 [The MIT License](https://github.com/zhangxinxu/ieBetter/blob/master/LICENSE.md)
+
+Donate
+------------------
+<a target="_blank" href="https://me.alipay.com/zhangxinxu" title="小小赞助大大帮助"><img src="http://www.zhangxinxu.com/wordpress/wp-content/themes/default/images/pay_encourage.png" width="159" height="37" alt="支付鼓励" align="absmiddle"></a>
 
 
 
