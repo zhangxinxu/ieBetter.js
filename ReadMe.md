@@ -4,7 +4,7 @@ ieBetter.js
 It's created for IE6-IE8.
 
 
-why need this?
+Why need this?
 -----------------
 Modern browser is so powerfull. For some project, this is no any reason to include a JavaScript library. For example, jQuery.
 
@@ -32,11 +32,11 @@ init[|Mouse|UI]Event<br>
 input<br>
 window.onhashchange<br><br>
 • DOM特性相关API<br>
-window.getComputedStyle<br>
-• ES5 Object扩展<br><br>
+window.getComputedStyle<br><br>
+• ES5 Object扩展<br>
 Object.create<br>
 Object.keys<br>
-• Date对象<br>>
+• Date对象<br>
 Date.now<br><br>
 • ES5 Function扩展<br>
 Function.bind<br><br>
