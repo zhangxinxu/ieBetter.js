@@ -16,6 +16,19 @@ Simplely, include 'ieBetter.js', then just use APIs as in modern browser. For ex
 
 <pre>document.querySelector("#id");</pre>
 
+Because of that only IE6-IE8 need ieBetter.js. So we have to do some special deal. For Example, IE conditional comments. Like this:
+<pre>&lt;!--[if lte IE 8]>
+&lt;script src="ieBetter.js">&lt;/script>
+&lt;![endif]--></pre>
+
+However, IE10+ begin to ignore conditional comments. So, for this browser, if the page is in a IE6-IE8 documentMode, <code>ieBetter.js</code> will be ignore. So, maybe you can try this method:
+<pre>if (!document.addEventListener) {
+    // IE6~IE8
+    document.write('&lt;script src="ieBetter.js">&lt;\/script>');	
+}</pre>
+
+Good luck for you!
+
 APIs and Demos
 ------------------
 So far, the APIs that has supported are:
