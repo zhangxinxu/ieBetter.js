@@ -31,12 +31,12 @@ Good luck for you!
 
 APIs and Demos
 ------------------
-So far, the APIs that has supported are:
-• 选择器相关API<br>
+So far, the APIs that has supported are: <br>
+<strong>• 选择器相关API</strong><br>
 *.querySelector<br>
 *.querySelectorAll<br>
 *.getElementsByClassName<br><br>
-• 事件相关API<br>
+<strong>• 事件相关API</strong><br>
 *.addEventListener<br>
 *.removeEventListener<br>
 *.dispatchEvent<br>
@@ -44,18 +44,18 @@ document.createEvent<br>
 init[|Mouse|UI]Event<br>
 input<br>
 window.onhashchange<br><br>
-• DOM特性相关API<br>
+<strong>• DOM特性相关API</strong><br>
 window.getComputedStyle<br><br>
-• ES5 Object扩展<br>
+<strong>• ES5 Object扩展</strong><br>
 Object.create<br>
 Object.keys<br>
-• Date对象<br>
+<strong>• Date对象</strong><br>
 Date.now<br><br>
-• ES5 Function扩展<br>
+<strong>• ES5 Function扩展</strong><br>
 Function.bind<br><br>
-• ES5 String扩展<br>
+<strong>• ES5 String扩展</strong><br>
 String.trim<br><br>
-• ES5 数组方法扩展<br>
+<strong>• ES5 数组方法扩展</strong><br>
 Array.isArray<br>
 Array.forEach<br>
 Array.map<br>
