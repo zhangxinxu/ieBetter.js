@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="IE=8" />
+<meta http-equiv="x-ua-compatible" content="IE=7" />
 <meta http-equiv="description" content="ieBetter.js方法支持API简介以及演示 » 张鑫旭-鑫空间-鑫生活" />
 <meta name="description" content="张鑫旭web前端文档页面之ieBetter方法支持API简介以及演示" />
 <meta name="keywords" content="ieBetter.js, javascript, ie6, ie7, ie8, API" />
@@ -32,7 +32,7 @@ img { background-color: #f5f5f5; }
 	<div class="zxx_constr">
     	<ul class="zxx_nav_ul">
         	<li class="zxx_nav_li"><a href="index.html" class="zxx_nav_a zxx_nav_on">API展示</a></li>
-            <li class="zxx_nav_li"><a href="index.html" class="zxx_nav_a">相关文章</a></li>
+            <li class="zxx_nav_li"><a href="http://www.zhangxinxu.com/wordpress/?p=3835" class="zxx_nav_a">相关文章</a></li>
             <li class="zxx_nav_sp">            	
                 <a href="javascript:" id="hideHeadFoot" class="zxx_gbtn" title="如果您的浏览器高度不够，可以点击这个按钮增强体验">隐藏头部和尾部</a>&nbsp;
                 <a href="https://github.com/zhangxinxu/ieBetter" class="zxx_rbtn">Fork Me</a>
@@ -55,6 +55,8 @@ img { background-color: #f5f5f5; }
         <a href="#initEvent" class="zxx_api_a" name="initEvent">init[|Mouse|UI]Event</a>
         <a href="#input" class="zxx_api_a" name="input">input</a>
         <a href="#hashchange" class="zxx_api_a" name="hashchange">window.onhashchange</a>
+        <h6 class="zxx_api_title">• DOM特性相关API</h6>
+        <a href="#getComputedStyle" class="zxx_api_a" name="getComputedStyle">window.getComputedStyle</a>
         <h6 class="zxx_api_title">• ES5 Object扩展</h6>
         <a href="#create" class="zxx_api_a" name="create">Object.create</a>
         <a href="#keys" class="zxx_api_a" name="keys">Object.keys</a>
@@ -536,6 +538,71 @@ if (eleHashChange) {
         </div>
     </div>
     <!-- another API -->
+    <div id="getComputedStyle" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>window.getComputedStyle</h2>
+            <h3>概述</h3>
+            <p>返回元素包含的CSS属性以及对应的属性值。</p>
+            <h3>语法</h3>
+            <pre>var <em>style</em> = window.getComputedStyle(<em>element</em>[, <em>pseudoElt</em>]);</pre>
+            <ul>
+            	<li><code>element</code> 表示DOM元素。</li>
+                <li><code>pseudoElt</code> 表示伪类。不过这里并不支持。包括IE9浏览器。</li>
+            </ul>            
+            <h3>其他说明</h3>
+            <p>要想得到特性属性的CSS值，有两种方式：</p>
+            <ol start="1">
+            	<li>直接获取。但是，属性名只能是驼峰形式，例如<code>backgroundColor</code>, 而不能是<code>background-color</code>. 如下代码：
+                	<pre>var bgColor = <em>style</em>.backgroundColor;</pre>
+                    <p>不能直接使用<code>"float"</code>属性获得浮动值。需要使用<code>styleFloat</code>：</p>
+                    <pre>var <em>valueFloat</em> = window.getComputedStyle(<em>element</em>)["styleFloat"];</pre>
+                </li>
+                <li>使用<code>getPropertyValue</code>方法获取。
+                	<pre>var <em>cssValue</em> = <em>style</em>.getPropertyValue(<em>cssKey</em>);</pre>
+                    <p><code>getPropertyValue</code>获取有两个好处。一是支持短横连接符的写法，如<code>"background-color"</code>; 二是可以直接使用<code>float</code>属性。</p>
+                </li>
+            </ol>
+            <p>更多知识点可参考我的“<a href="http://www.zhangxinxu.com/wordpress/?p=2378">获取元素CSS值之getComputedStyle方法熟悉</a>”这篇文章。</p>
+            <h3>示例</h3>
+            <form id="formGetCssValue">
+            	<p>你想知道下图的哪个CSS属性值？</p>
+                <p>
+                    <img src="mm1.jpg" id="bingoGetCss">
+                </p>
+                <p><input id="inputCssValue" size="20" value="float" placeholder="输入CSS属性名称" required pattern="^[a-zA-Z]+(?:\-[a-zA-Z]+)?$"></p>
+            	<p><input type="submit" class="button" value="出现吧~"></p>
+            	<p id="resultCssValue">您输入的属性<code>$key$</code>对应的值是<code>$value$</code>.</p>
+            </form>            
+            <h3>代码</h3>
+            <p>HTML</p>
+            <pre>&lt;form id="formGetCssValue">
+    &lt;p>你想知道下图的哪个CSS属性值？&lt;/p>
+    &lt;p>
+        &lt;img src="mm1.jpg" id="bingoGetCss">
+    &lt;/p>
+    &lt;p>&lt;input id="inputCssValue" size="20" value="float" placeholder="输入CSS属性名称" required pattern="^[a-zA-Z]+(?:\-[a-zA-Z]+)?$">&lt;/p>
+    &lt;p>&lt;input type="submit" class="button" value="出现吧~">&lt;/p>
+    &lt;p id="resultCssValue">您输入的属性&lt;code>$key$&lt;/code>对应的值是&lt;code>$value$&lt;/code>.&lt;/p>
+&lt;/form></pre>
+            <p>JS</p>
+            <pre>var eleFormGetCss = document.querySelector("#formGetCssValue")
+  , eleBingoGetCss = document.querySelector("#bingoGetCss")
+  , eleInputCssValue = document.querySelector("#inputCssValue")
+  , eleResultCssValue = document.querySelector("#resultCssValue");
+var initHtmlResult = '';
+if (eleFormGetCss && eleBingoGetCss && eleInputCssValue && eleResultCssValue) {
+    initHtmlResult = eleResultCssValue.innerHTML;
+    eleResultCssValue.innerHTML = '&nbsp;';
+    eleFormGetCss.addEventListener("submit", function(event) {
+        var key = eleInputCssValue.value;
+        var value = window.<mark>getComputedStyle</mark>(eleBingoGetCss).getPropertyValue(key) + "";
+        eleResultCssValue.innerHTML = initHtmlResult.replace("$key$", key).replace("$value$", value);
+        event.preventDefault();
+    });
+}</pre>
+        </div>
+    </div>
+    <!-- another API -->
     <div id="create" class="zxx_api_detail">
     	<div class="zxx_api_content">
         	<h2>Object.create</h2>
@@ -896,7 +963,7 @@ console.log(data.lastIndexOf(4)); <span style="color:#999">// -1 (未找到)</sp
     	<p class="zxx_copyright">
             Copyright &copy; <a href="http://www.zhangxinxu.com/">张鑫旭-鑫空间-鑫生活</a>
             |
-            <a href="http://www.zhangxinxu.com/wordpress/?p=3758">该篇相关文章</a>
+            <a href="http://www.zhangxinxu.com/wordpress/?p=3835">该篇相关文章</a>
             |
             <a href="https://github.com/zhangxinxu/ieBetter">GitHub地址</a>
         </p>
@@ -906,9 +973,6 @@ console.log(data.lastIndexOf(4)); <span style="color:#999">// -1 (未找到)</sp
 if (!document.addEventListener) {
 	// IE6~IE8
 	document.write('<script src="ieBetter.js"><\/script>');	
-} else if (!history.pushState) {
-	// IE9
-	document.write('<script src="ie9Fixed.js"><\/script>');
 }
 </script>
 
@@ -951,7 +1015,7 @@ if (!document.addEventListener) {
 				var visibility = eleBingClassName.style.visibility;
 				if (visibility == "hidden") {
 					this.value = "点击隐藏";	
-					eleBingClassName.style.visibility = "visible";
+					eleBingClassName.style.visibility = "";
 				} else {
 					this.value = "点击显示";	
 					eleBingClassName.style.visibility = "hidden";
@@ -1077,6 +1141,24 @@ if (!document.addEventListener) {
 			eleTextDateNow.innerHTML = Date.now();	
 		});
 	}
+	
+	// getComputedStyle
+	var eleFormGetCss = document.querySelector("#formGetCssValue")
+	  , eleBingoGetCss = document.querySelector("#bingoGetCss")
+	  , eleInputCssValue = document.querySelector("#inputCssValue")
+	  , eleResultCssValue = document.querySelector("#resultCssValue");
+	var initHtmlResult = '';
+	if (eleFormGetCss && eleBingoGetCss && eleInputCssValue && eleResultCssValue) {
+		initHtmlResult = eleResultCssValue.innerHTML;
+		eleResultCssValue.innerHTML = '&nbsp;';
+		eleFormGetCss.addEventListener("submit", function(event) {
+			var key = eleInputCssValue.value;
+			var value = window.getComputedStyle(eleBingoGetCss).getPropertyValue(key) + "";
+			eleResultCssValue.innerHTML = initHtmlResult.replace("$key$", key).replace("$value$", value);
+			event.preventDefault();
+		});
+	}
+	
 })();
 
 //------------------------------我是分割线-----------------------------------//

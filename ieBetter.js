@@ -307,6 +307,7 @@
 				}.bind(this));
 			}	
 		}
+		
 	};
 	
 	var fDomExtend = function(collection) {
@@ -518,6 +519,34 @@
 			  oldHash = newHash;
 			}
 		 }, 100);
+	}
+	
+	/**
+	 * getComputedStyle
+	*/
+	if (typeof window.getComputedStyle !== "function") {
+		window.getComputedStyle = function(el, pseudo) {
+			var oStyle = {};
+			var oCurrentStyle = el.currentStyle || {};
+			for (var key in oCurrentStyle) {
+				oStyle[key] = oCurrentStyle[key];
+			}
+			 
+			oStyle.styleFloat = oStyle.cssFloat;
+			 
+            oStyle.getPropertyValue = function(prop) {
+				// return oCurrentStyle.getAttribute(prop) || null;  // IE6 do not support "key-key" but "keyKey"
+				var re = /(\-([a-z]){1})/g;
+				if (prop == 'float') prop = 'styleFloat';
+				if (re.test(prop)) {
+					prop = prop.replace(re, function () {
+						return arguments[2].toUpperCase();
+					});
+				}
+				return el.currentStyle[prop] ? el.currentStyle[prop] : null;
+			}
+			return oStyle;
+		}
 	}
 	
 })(window, document);
