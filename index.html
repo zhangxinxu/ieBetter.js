@@ -57,6 +57,9 @@ img { background-color: #f5f5f5; }
         <a href="#hashchange" class="zxx_api_a" name="hashchange">window.onhashchange</a>
         <h6 class="zxx_api_title">• DOM特性相关API</h6>
         <a href="#getComputedStyle" class="zxx_api_a" name="getComputedStyle">window.getComputedStyle</a>
+        <h6 class="zxx_api_title">• ES5 JSON扩展</h6>
+        <a href="#parse" class="zxx_api_a" name="parse">JSON.parse</a>
+        <a href="#stringify" class="zxx_api_a" name="stringify">JSON.stringify</a>
         <h6 class="zxx_api_title">• ES5 Object扩展</h6>
         <a href="#create" class="zxx_api_a" name="create">Object.create</a>
         <a href="#keys" class="zxx_api_a" name="keys">Object.keys</a>
@@ -600,6 +603,82 @@ if (eleFormGetCss && eleBingoGetCss && eleInputCssValue && eleResultCssValue) {
         event.preventDefault();
     });
 }</pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="parse" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>JSON.parse</h2>
+            <h3>概述</h3>
+            <p>将JavaScript对象表示法(JSON)字符串转换为对象。</p>
+            <h3>语法</h3>
+            <pre>JSON.parse(text[, reviver])</pre>
+            <ul>
+            	<li><code>text</code> 表示要解析的JSON字符串。</li>
+                <li><code>reviver</code> 可选。如果是一个转换结果的函数，将为对象的每个成员调用此函数。如果成员包含嵌套对象，则先于父对象转换嵌套对象。对于每个成员，会发生以下情况：</li>
+                <ul>
+                	<li>如果<code>reviver</code>返回一个有效值，则成员值将替换为转换后的值。</li>
+                    <li>如果<code>reviver</code>返回它接收的相同值，则不修改成员值。</li>
+                    <li>如果<code>reviver</code>返回<code>null</code>或<code>undefined</code>, 则删除成员。</li>
+                </ul>
+            </ul>
+            <p>返回一个对象或数组。</p>
+            <h3>其他说明</h3>
+            <p>如果此函数引发JavaScript分析器错误（如“SCRIPT1014：无效字符”），则输入文本将不遵循JSON语法。 若要更正此错误，请执行下列操作之一：
+修改<code>text</code>参数以遵循JSON语法。有关更多信息，请参见JSON对象的<a href="http://go.microsoft.com/fwlink/?LinkId=125203">BNF syntax notation</a>（BNF语法表示法）。</p>
+            <h3>示例</h3>
+            <pre>try {
+    JSON.parse('{}'); <span style="color: #999;">// {}</span>
+    JSON.parse('true'); <span style="color: #999;">// true</span>
+    JSON.parse('"foo"'); <span style="color: #999;">// "foo"</span>
+    JSON.parse('[1, 5, "false"]'); <span style="color: #999;">// [1, 5, "false"]</span>
+    JSON.parse('null'); <span style="color: #999;">// null</span>
+} catch (e) {
+    console.error("Parsing error:", e); 
+}</pre>
+            
+            <pre>var jsontext = '{"firstname":"Jesper","surname":"Aaberg","phone":["555-0100","555-0120"]}';
+var contact = JSON.parse(jsontext);
+document.write(contact.surname + ", " + contact.firstname);
+ 
+<span style="color: #999;">// 输出: Aaberg, Jesper</span></pre>
+        </div>
+    </div>
+    <!-- another API -->
+    <div id="stringify" class="zxx_api_detail">
+    	<div class="zxx_api_content">
+        	<h2>JSON.stringify</h2>
+            <h3>概述</h3>
+            <p>将JavaScript值转换为JavaScript对象表示法(Json)字符串。</p>
+            <h3>语法</h3>
+            <pre>JSON.stringify(value [, replacer] [, space])</pre>
+            <ul>
+            	<li><code>value</code> 表示要转换的JavaScript值（通常为对象或数组）。</li>
+                <li><code>replacer</code> 可选。表示转换结果的函数或数组。
+                	<ul>
+                    	<li>如果<code>replacer</code>为一个函数，则<code>JSON.stringify</code>会调用该函数，并传入每个成员的键和值。使用返回值而不是原始值。如果此函数返回<code>undefined</code>, 则排除成员。根对象的键是一个空字符串：<code>""</code>.</li>
+                        <li>如果<code>replacer</code>为一个数组，则仅转换该数组中具有键值的成员。成员的转换顺序与键在数组中的顺序一样。当<code>value</code>参数也为数组时，将忽略<code>replacer</code>数组。</li>
+                    </ul>
+                </li>
+                <li><code>space</code> 可选。表示向返回值JSON文本添加缩进、空白和换行符以使其更易于读取。
+                	<ul>
+                    	<li>如果省略<code>space</code>，则将生成返回值文本，而没有任何额外空白。</li>
+                        <li>如果<code>space</code>为一个数字，则返回值文本在每个级别缩进指定数目的空格。 如果<code>space</code>大于<code>10</code>, 则文本缩进<code>10</code>个空格。</li>
+                        <li>如果<code>space</code>是非空字符串（例如<code>"\t"</code>），则返回值文本在每个级别中缩进字符串中的字符数。</li>
+                        <li>如果<code>space</code>是长度大于<code>10</code>个字符的字符串，则使用前<code>10</code>个字符。</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>返回值为一个包含JSON文本的字符串。</p>
+            <h3>其他说明</h3>
+            <p>目前，本项目中，<code>JSON.parse</code>和<code>JSON.stringify</code>两个方法都源自开源项目：<a href="https://github.com/douglascrockford/JSON-js/blob/master/json2.js">https://github.com/douglascrockford/JSON-js/blob/master/json2.js</a>.</p>
+            <h3>示例</h3>
+            <pre>assert(JSON.stringify({}) === '{}');
+assert(JSON.stringify(true) === 'true');
+assert(JSON.stringify("foo") === '"foo"');
+assert(JSON.stringify([1, "false", false]) === '[1,"false",false]');
+assert(JSON.stringify({ x: 5 }) === '{"x":5}');
+JSON.stringify({x: 5, y: 6}); <span style="color: #999;">// '{"x":5,"y":6}' or '{"y":6,"x":5}'</span></pre>
         </div>
     </div>
     <!-- another API -->
