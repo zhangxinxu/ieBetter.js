@@ -46,6 +46,9 @@ input<br>
 window.onhashchange<br><br>
 <strong>• DOM特性相关API</strong><br>
 window.getComputedStyle<br><br>
+<strong>• ES5 JSON扩展</strong><br>
+JSON.parse<br>
+JSON.stringify<br><br>
 <strong>• ES5 Object扩展</strong><br>
 Object.create<br>
 Object.keys<br><br>
