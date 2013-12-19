@@ -252,9 +252,7 @@
 			return fDomExtend(Sizzle(selector, this));
 		},
 		getElementsByClassName: function(classNames) {
-			return this.querySelectorAll(classNames.split(/\s+/g).map(function(className) {
-				return "." + className;
-			}).join());
+			return this.querySelectorAll("." + classNames.trim().replace(/\s+/, "."));
 		},
 		// addEventListener
 		addEventListener: function(eventType, funcHandle, useCapture) {
