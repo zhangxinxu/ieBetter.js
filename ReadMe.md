@@ -70,14 +70,14 @@ Array.lastIndexOf<br>
 Array.reduce<br>
 Array.reduceRight
 
-You can visit API document to get more infomation: [http://rawgithub.com/zhangxinxu/ieBetter/master/index.html](http://rawgithub.com/zhangxinxu/ieBetter/master/index.html)
+You can visit API document to get more infomation: [http://rawgithub.com/zhangxinxu/ieBetter.js/master/index.html](http://rawgithub.com/zhangxinxu/ieBetter.js/master/index.html)
 
 Still, you can [visit here](http://www.zhangxinxu.com/wordpress/?p=3835) to some other information.
 
 
 License
 -------------------
-[The MIT License](https://github.com/zhangxinxu/ieBetter/blob/master/LICENSE.md)
+[The MIT License](https://github.com/zhangxinxu/ieBetter.js/blob/master/LICENSE.md)
 
 Donate
 ------------------
