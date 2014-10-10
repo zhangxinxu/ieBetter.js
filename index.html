@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="IE=7" />
 <meta http-equiv="description" content="ieBetter.js方法支持API简介以及演示 » 张鑫旭-鑫空间-鑫生活" />
 <meta name="description" content="张鑫旭web前端文档页面之ieBetter方法支持API简介以及演示" />
 <meta name="keywords" content="ieBetter.js, javascript, ie6, ie7, ie8, API" />
@@ -1146,7 +1145,7 @@ if (!document.addEventListener) {
 		eleDispatch.addEventListener("marginLeft", function() {
 			this.style.marginLeft = Math.round(Math.random() * 100)	+ "px";
 		});
-		eventMarginLeft.initEvent("marginLeft");
+		eventMarginLeft.initEvent("marginLeft", true, true);
 	}	
 	var eleTestDispatch = document.querySelector("#testDispatchEvent");
 	if (eleTestDispatch) eleTestDispatch.addEventListener("click", function() {
@@ -1165,7 +1164,7 @@ if (!document.addEventListener) {
 		// 创建
 		var initEventCreate = document.createEvent("MouseEvents");
 		// 初始化
-		initEventCreate.initMouseEvent("click");
+		initEventCreate.initMouseEvent("click", true, true, 0,0,0,0,0,0,0,0,0,0,0,null);
 		// 点击触发
 		eleClickDispatch.addEventListener("click", function() {
 			eleClickAdded.dispatchEvent(initEventCreate);	
