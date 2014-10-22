@@ -81,7 +81,7 @@ License
 
 Donate
 ------------------
-<a target="_blank" href="https://me.alipay.com/zhangxinxu" title="小小赞助大大帮助"><img src="http://www.zhangxinxu.com/wordpress/wp-content/themes/default/images/pay_encourage.png" width="159" height="37" alt="支付鼓励" align="absmiddle"></a>
+<img src="http://www.zhangxinxu.com/alipay.png" width="256" height="256" alt="支付鼓励">
 
 
 
