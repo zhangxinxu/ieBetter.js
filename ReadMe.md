@@ -70,7 +70,7 @@ Array.lastIndexOf<br>
 Array.reduce<br>
 Array.reduceRight
 
-You can visit API document to get more infomation: [http://rawgithub.com/zhangxinxu/ieBetter.js/master/index.html](http://rawgithub.com/zhangxinxu/ieBetter.js/master/index.html)
+You can visit <strong>API document</strong> to get more infomation: [http://zhangxinxu.github.io/ieBetter.js/](http://zhangxinxu.github.io/ieBetter.js/)
 
 Still, you can [visit here](http://www.zhangxinxu.com/wordpress/?p=3835) to some other information.
 
