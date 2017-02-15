@@ -5,9 +5,9 @@ a:hover { text-decoration: underline; }
 img { border: 0; }
 
 /* scrollbar */
-::-webkit-scrollbar { width: 14px; height: 14px; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track-piece { background-color: #fff; }
-::-webkit-scrollbar-thumb { border: 1px solid #34538b; background-color: #34538b; }
+::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,.5); border-radius: 8px; }
 ::-webkit-scrollbar-thumb:hover {  }
 
 /* constructor */

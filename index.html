@@ -1164,7 +1164,7 @@ if (!document.addEventListener) {
 		// 创建
 		var initEventCreate = document.createEvent("MouseEvents");
 		// 初始化
-		initEventCreate.initMouseEvent("click", true, true, 0,0,0,0,0,0,0,0,0,0,0,null);
+		initEventCreate.initMouseEvent("click", true, true, window, null);
 		// 点击触发
 		eleClickDispatch.addEventListener("click", function() {
 			eleClickAdded.dispatchEvent(initEventCreate);	
