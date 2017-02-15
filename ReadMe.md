@@ -6,9 +6,9 @@ It's created for IE6-IE8.
 
 Why need this?
 -----------------
-Modern browsers are so powerfull. For some small project, this is no any reason to include a large JavaScript library. For example, jQuery, Kissy and so on.
+Modern browsers are so powerfull. For some small project, there is no any reason to include a large JavaScript library. For example, jQuery, Kissy and so on.
 
-So, what we need is just a file of JavaScript witch is created only for IE6-IE8, and make IE6-IE8 like a modern browser(Chrome, IE9+, ...).
+So, what we need is just a JavaScript file which is created only for IE6-IE8, and make IE6-IE8 like a modern browser(Chrome, IE9+, ...).
 
 How to use?
 ----------------
@@ -21,7 +21,7 @@ Because of that only IE6-IE8 need ieBetter.js. So we have to do some special dea
 &lt;script src="ieBetter.js">&lt;/script>
 &lt;![endif]--></pre>
 
-However, IE10+ begin to ignore conditional comments. So, for this browser, if the page is in a IE6-IE8 documentMode, <code>ieBetter.js</code> will be ignore. So, maybe you can try this method:
+However, IE10+ begin to ignore conditional comments. So, for this browser, if the page is in a IE6-IE8 documentMode, <code>ieBetter.js</code> will be ignored. So, maybe you can try this method:
 <pre>if (!document.addEventListener) {
     // IE6~IE8
     document.write('&lt;script src="ieBetter.js">&lt;\/script>');	
@@ -72,7 +72,7 @@ Array.reduceRight
 
 You can visit <strong>API document</strong> to get more infomation: [http://zhangxinxu.github.io/ieBetter.js/](http://zhangxinxu.github.io/ieBetter.js/)
 
-Still, you can [visit here](http://www.zhangxinxu.com/wordpress/?p=3835) to some other information.
+Still, you can [visit here](http://www.zhangxinxu.com/wordpress/?p=3835) for some other information.
 
 
 License
