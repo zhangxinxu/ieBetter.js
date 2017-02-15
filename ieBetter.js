@@ -350,7 +350,7 @@
 			global.dispatchEvent = function(event) {
 				oDomExtend.dispatchEvent.call(global, event);
 			};
-			global.removeEventListener = function() {
+			global.removeEventListener = function(eventType, funcHandle, useCapture) {
 				oDomExtend.removeEventListener.call(global, eventType, funcHandle, useCapture);	
 			};
 		});	
