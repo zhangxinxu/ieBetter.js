@@ -81,7 +81,16 @@ License
 
 Donate
 ------------------
-<img src="http://www.zhangxinxu.com/alipay.png" width="256" height="256" alt="支付鼓励">
+<table>
+	<tr>
+		<th align="center">支付宝</th>
+		<th align="center">微&nbsp;&nbsp;信</th>
+	</tr>
+	<tr>
+		<td align="center"><img src="http://www.zhangxinxu.com/alipay.png" width="145" height="145"></td>
+		<td align="center"><img src="http://www.zhangxinxu.com/wxpay.png" width="145" height="145"></td>
+	</tr>
+</table>
 
 
 
