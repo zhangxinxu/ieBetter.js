@@ -1,0 +1,26 @@
+{
+  "name": "ieBetter.js",
+  "version": "1.0.3",
+  "description": "make ie browser like a morden browser main for ie6~ie8",
+  "main": "ieBetter.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangxinxu/ieBetter.js.git"
+  },
+  "keywords": [
+    "ieBetter",
+    "ieBetter.js",
+	  "javascript"
+  ],
+  "author": "zhangxinxu",
+  "license": [{
+	 "type": "MIT",
+     "url": "https://github.com/zhangxinxu/ieBetter.js/blob/master/LICENSE.md" 
+  }],
+  "bugs": {
+    "url": "https://github.com/zhangxinxu/ieBetter.js/issues",
+	  "email" : "zhangxinxu@zhangxinxu.com"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
